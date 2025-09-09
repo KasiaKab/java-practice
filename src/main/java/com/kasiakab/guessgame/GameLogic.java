@@ -9,7 +9,8 @@ public class GameLogic {
         // Tworzenie instancji nie ma sensu i jest zablokowane.
     }
 
-    private static final int MAX_ATTEMPTS = 5;
+    private static final int MAX_ATTEMPTS = 10;
+    private static final int CLOSE_RANGE = 10;
 
     private static Random rand = new Random();
 
@@ -22,11 +23,20 @@ public class GameLogic {
         while (counter < MAX_ATTEMPTS) {
             int inputNumber = ConsoleReader.collectNumber();
             counter++;
+            int difference = Math.abs(inputNumber - secretNumber);
 
             if (inputNumber < secretNumber) {
-                ConsoleReader.toLowMessage(counter);
+                if (difference <= CLOSE_RANGE) {
+                    ConsoleReader.toLowCloseMessage(counter);
+                } else {
+                    ConsoleReader.toLowMessage(counter);
+                }
             } else if (inputNumber > secretNumber) {
-                ConsoleReader.toHighMessage(counter);
+                if (difference <= CLOSE_RANGE) {
+                    ConsoleReader.toHighCloseMessage(counter);
+                } else {
+                    ConsoleReader.toHighMessage(counter);
+                }
             } else {
                 ConsoleReader.winMessage();
                 break;

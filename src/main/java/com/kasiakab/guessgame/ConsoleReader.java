@@ -55,4 +55,12 @@ public class ConsoleReader {
     public static void goodbyeMessage() {
         System.out.println("Thanks for playing! See you next time!");
     }
+
+    public static void toLowCloseMessage(int counter) {
+        System.out.println("Attempt " + counter + ": You're very close! Just a bit too low! Try higher.");
+    }
+
+    public static void toHighCloseMessage(int counter) {
+        System.out.println("Attempt " + counter + ": You're very close! Just a bit too high! Try lower.");
+    }
 }
