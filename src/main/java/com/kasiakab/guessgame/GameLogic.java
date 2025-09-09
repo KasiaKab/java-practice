@@ -23,27 +23,33 @@ public class GameLogic {
         while (counter < MAX_ATTEMPTS) {
             int inputNumber = ConsoleReader.collectNumber();
             counter++;
+
             int difference = Math.abs(inputNumber - secretNumber);
 
-            if (inputNumber < secretNumber) {
-                if (difference <= CLOSE_RANGE) {
-                    ConsoleReader.toLowCloseMessage(counter);
-                } else {
-                    ConsoleReader.toLowMessage(counter);
-                }
-            } else if (inputNumber > secretNumber) {
-                if (difference <= CLOSE_RANGE) {
-                    ConsoleReader.toHighCloseMessage(counter);
-                } else {
-                    ConsoleReader.toHighMessage(counter);
-                }
-            } else {
-                ConsoleReader.winMessage();
-                break;
-            }
+            if (checkGuess(inputNumber, secretNumber, difference, counter)) break;
         }
         if (counter == MAX_ATTEMPTS)
             ConsoleReader.gameOverMessage(secretNumber);
 
+    }
+
+    private static boolean checkGuess(int inputNumber, int secretNumber, int difference, int counter) {
+        if (inputNumber < secretNumber) {
+            if (difference <= CLOSE_RANGE) {
+                ConsoleReader.toLowCloseMessage(counter);
+            } else {
+                ConsoleReader.toLowMessage(counter);
+            }
+        } else if (inputNumber > secretNumber) {
+            if (difference <= CLOSE_RANGE) {
+                ConsoleReader.toHighCloseMessage(counter);
+            } else {
+                ConsoleReader.toHighMessage(counter);
+            }
+        } else {
+            ConsoleReader.winMessage();
+            return true;
+        }
+        return false;
     }
 }
