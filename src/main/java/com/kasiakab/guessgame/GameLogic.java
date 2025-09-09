@@ -4,6 +4,10 @@ import java.util.Random;
 
 public class GameLogic {
 
+    private GameLogic() {
+        // Klasa narzędziowa (utility class) — zawiera tylko metody statyczne.
+        // Tworzenie instancji nie ma sensu i jest zablokowane.
+    }
 
     private static final int MAX_ATTEMPTS = 5;
 
