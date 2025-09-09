@@ -46,4 +46,13 @@ public class ConsoleReader {
         System.out.println("You have reached the maximum number of attempts!" +
                 "\nGame over! The secret number was: " + secretNumber);
     }
+
+    public static Character askPlayAgain() {
+        System.out.println("----------------- \nPlay again? (Y/N):");
+        return sc.next().charAt(0);
+    }
+
+    public static void goodbyeMessage() {
+        System.out.println("Thanks for playing! See you next time!");
+    }
 }
