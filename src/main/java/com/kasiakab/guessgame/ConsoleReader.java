@@ -12,21 +12,20 @@ public class ConsoleReader {
     private static final Scanner sc = new Scanner(System.in);
 
     public static void welcomeMessage() {
-        System.out.println("Welcome to the guess game!"
-                + "\nPlease enter a number between 0 and 100");
+        System.out.println("Welcome to the guess game!");
     }
 
     public static int collectNumber() {
-        System.out.println("Please enter a number between 0 and 100");
+        System.out.println("Please enter a number between 0 and 100:");
         return sc.nextInt();
     }
 
     public static void toLowMessage(int counter) {
-        System.out.println("Attempt: " + counter + " Too low! Try a higher number.");
+        System.out.println("Attempt " + counter + ": Too low! Try a higher number.");
     }
 
     public static void toHighMessage(int counter) {
-        System.out.println("Attempt: " + counter + " Too high! Try a lower number.");
+        System.out.println("Attempt " + counter + ": Too high! Try a lower number.");
     }
 
     public static void winMessage() {
