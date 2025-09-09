@@ -1,5 +1,6 @@
 package com.kasiakab.guessgame;
 
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class ConsoleReader {
@@ -16,8 +17,17 @@ public class ConsoleReader {
     }
 
     public static int collectNumber() {
-        System.out.println("Please enter a number between 0 and 100:");
-        return sc.nextInt();
+        while (true) {
+            // wykonuj, DOPÓKI WARUNEK == true
+
+            System.out.println("Please enter a number between 0 and 100:");
+            try {
+                return sc.nextInt();
+            } catch (InputMismatchException ex) {
+                System.err.println("That's not a number! Try again.");
+                sc.nextLine();
+            }
+        }
     }
 
     public static void toLowMessage(int counter) {
