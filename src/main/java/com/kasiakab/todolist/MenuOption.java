@@ -4,8 +4,8 @@ public enum MenuOption {
 
     ADD("Add new task"),
     LIST("Show all tasks"),
-    REMOVE("Remove task by number"),
     EDIT("Edit task by number"),
+    REMOVE("Remove task by number"),
     EXIT("Exit");
 
     private final String description;
