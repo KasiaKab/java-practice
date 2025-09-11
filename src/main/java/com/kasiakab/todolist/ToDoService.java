@@ -19,11 +19,20 @@ public class ToDoService {
         return tasks;
     }
 
-    public void removeTask(String task) {
-        tasks.remove(task);
+    public boolean removeTask(int index) {
+        if (index >= 0 && index < tasks.size()) {
+            tasks.remove(index);
+            return true;
+        }
+        return false;
     }
 
-    public void editTask(String task) {
-        tasks.set(tasks.indexOf(task), task);
+    public boolean editTask(int index, String task) {
+        if (index >= 0 && index < tasks.size()) {
+            tasks.set(index, task);
+            return true;
+        }
+        /*nieudana edycja*/
+        return false;
     }
 }
