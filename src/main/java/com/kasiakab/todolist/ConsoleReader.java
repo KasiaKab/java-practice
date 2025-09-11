@@ -7,9 +7,7 @@ import java.util.Scanner;
 public class ConsoleReader {
 
     private ConsoleReader() {
-    }
-
-    ;
+    };
 
     private static Scanner sc = new Scanner(System.in);
 
@@ -50,6 +48,14 @@ public class ConsoleReader {
 
     public static void showError(String message) {
         System.out.println(message);
+    }
+
+    public static void println(String message) {
+        System.out.println(message);
+    }
+
+    public static void println() {
+        System.out.println();
     }
 
     public static void close() {
