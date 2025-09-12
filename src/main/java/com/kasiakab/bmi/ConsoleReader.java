@@ -20,7 +20,7 @@ public class ConsoleReader {
     }
 
     public void displayResult(double result, String category) {
-        System.out.printf("BMI Result: %.02d, \nBMI Category: %s", result, category);
+        System.out.printf("BMI Result: %.2f%nCategory: %s%n", result, category);
     }
 
     public char wantToContinue() {
