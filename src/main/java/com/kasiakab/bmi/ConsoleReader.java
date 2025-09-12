@@ -19,15 +19,16 @@ public class ConsoleReader {
         return input;
     }
 
-    public void displayResult() {
-        System.out.println("BMI Result:");
+    public void displayResult(double result) {
+        System.out.println("BMI Result:" + result);
     }
 
-    public void wantToContinue() {
-        System.out.println("Want to Continue?");
+    public char wantToContinue() {
+        System.out.println("------------\nWant to Continue? (Y/N):");
+        return scanner.next().trim().toUpperCase().charAt(0);
     }
 
-    public char readChar() {
-        return scanner.next().charAt(0);
+    public void byeMessage() {
+        System.out.println("Bye! Bye!");
     }
 }
