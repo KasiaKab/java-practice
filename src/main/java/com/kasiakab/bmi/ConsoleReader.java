@@ -19,8 +19,8 @@ public class ConsoleReader {
         return input;
     }
 
-    public void displayResult(double result) {
-        System.out.println("BMI Result:" + result);
+    public void displayResult(double result, String category) {
+        System.out.format("BMI Result: %.02d, \nBMI Category: %s", result, category);
     }
 
     public char wantToContinue() {
