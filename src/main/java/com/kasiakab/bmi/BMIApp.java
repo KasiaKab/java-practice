@@ -30,8 +30,8 @@ public class BMIApp {
             height = height / 100.0;
 
             double result = calculator.calculateBMI(weight, height);
-            reader.displayResult(result);
-            calculator.printCategory(result);
+            String category = calculator.printCategory(result);
+            reader.displayResult(result, category);
 
             char response = reader.wantToContinue();
             if (response != 'Y') {
