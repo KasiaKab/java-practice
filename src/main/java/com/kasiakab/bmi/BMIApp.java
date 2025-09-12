@@ -31,6 +31,7 @@ public class BMIApp {
 
             double result = calculator.calculateBMI(weight, height);
             reader.displayResult(result);
+            calculator.printCategory(result);
 
             char response = reader.wantToContinue();
             if (response != 'Y') {
