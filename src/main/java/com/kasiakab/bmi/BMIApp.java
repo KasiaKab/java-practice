@@ -98,7 +98,7 @@ public class BMIApp {
             }
         }
         if (fileExists) {
-            System.out.format("File %s already exists.", fileName);
+            System.out.println("File already exists: " + fileName);
         }
     }
 
