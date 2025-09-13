@@ -6,7 +6,7 @@ public class BMICalculator {
         return weight / (height * height);
     }
 
-    public String printCategory(double bmi) {
+    public String getCategory(double bmi) {
         if (bmi < 18.5) return "Underweight";
         else if (bmi < 25) return "Normal weight";
         else if (bmi < 30) return "Overweight";
