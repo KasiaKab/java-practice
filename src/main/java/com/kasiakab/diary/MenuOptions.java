@@ -2,9 +2,9 @@ package com.kasiakab.diary;
 
 public enum MenuOptions {
 
-    ADD("Add new post"),
-    LIST("Show all posts"),
-    DELETE("Delete post by number");
+    ADD("Add new note"),
+    LIST("Show all notes"),
+    DELETE("Delete note by number");
 
     private final String description;
 
