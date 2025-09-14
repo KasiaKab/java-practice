@@ -12,6 +12,11 @@ public class Note {
         this.content = content;
     }
 
+    public Note(LocalDateTime date, String content) {
+        this.date = date;
+        this.content = content;
+    }
+
     public String getContent() {
         return content;
     }
