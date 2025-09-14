@@ -14,13 +14,13 @@ public class FileManager {
         try (
                 FileWriter fileWriter = new FileWriter(FILE_NAME, true);
                 var writer = new BufferedWriter(fileWriter)
-            ) {
+        ) {
             for (Note note : notes) {
                 writer.write(note.toString());
                 writer.newLine();
             }
         } catch (IOException ex) {
-            System.err.printf("Failed to save into a file %s.", FILE_NAME   );
+            System.err.printf("Failed to save into a file %s.", FILE_NAME);
         }
     }
 
@@ -30,11 +30,10 @@ public class FileManager {
         try (
                 FileReader fileReader = new FileReader(FILE_NAME);
                 var reader = new BufferedReader(fileReader)
-                ) {
+        ) {
             String nextLine;
             DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm");
 
-            /* Wyciągamy datę: szukamy "[ " i " ]" */
             while ((nextLine = reader.readLine()) != null) {
                 try {
                     Note note = getNote(nextLine, formatter);
@@ -42,7 +41,6 @@ public class FileManager {
                 } catch (Exception ex) {
                     System.err.println("Skipping invalid line: " + nextLine);
                 }
-
             }
         } catch (IOException ex) {
             System.err.printf("Failed to read a file %s.", FILE_NAME);
@@ -51,16 +49,28 @@ public class FileManager {
     }
 
     private static Note getNote(String nextLine, DateTimeFormatter formatter) {
+        LocalDateTime date = parseDate(nextLine, formatter);
+        String content = parseContent(nextLine);
+        return createNote(date, content);
+    }
+
+    private static LocalDateTime parseDate(String nextLine, DateTimeFormatter formatter) {
+        /* Wyciągamy datę: szukamy "[ " i " ]" */
         int start = nextLine.indexOf("[ ") + 2;
         int end = nextLine.indexOf(" ]");
         String dateString = nextLine.substring(start, end);
-
         LocalDateTime date = LocalDateTime.parse(dateString, formatter);
+        return date;
+    }
 
+    private static String parseContent(String nextLine) {
         /* Wyciągamy treść, wszystko po " ] " */
         int contentStart = nextLine.indexOf(" ] ") + 3;
         String content = nextLine.substring(contentStart);
+        return content;
+    }
 
+    private static Note createNote(LocalDateTime date, String content) {
         /* Tworzymy obiekt Note i dodajmy do listy */
         Note note = new Note(date, content);
         return note;
