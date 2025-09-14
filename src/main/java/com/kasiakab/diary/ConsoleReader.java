@@ -5,27 +5,27 @@ import java.util.Scanner;
 
 public class ConsoleReader {
 
-    private ConsoleReader() {};
+    public ConsoleReader() {};
 
-    private static final Scanner sc = new Scanner(System.in);
+    private final Scanner sc = new Scanner(System.in);
 
     /*welcome -> choose an option - post added/removed.. -> bye, bye*/
-    public static void showMessage(String message) {
+    public void showMessage(String message) {
         System.out.println(message);
     }
 
-    public static String readLine() {
+    public String readLine() {
         return sc.nextLine();
     }
 
-    public static void displayMenu() {
+    public void displayMenu() {
         showMessage("Choose an option:");
         for (MenuOptions option : MenuOptions.values()) {
             System.out.println((option.ordinal() + 1) + " - " + option.getDescription());
         }
     }
 
-    public static MenuOptions readMenuOption() {
+    public MenuOptions readMenuOption() {
         while (true) {
             try {
                 int option = sc.nextInt();
@@ -42,7 +42,7 @@ public class ConsoleReader {
         }
     }
 
-    public static char readChar() {
-        return sc.next().trim().toUpperCase().charAt(0);
+    public void close() {
+        sc.close();
     }
 }
