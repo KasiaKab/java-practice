@@ -27,6 +27,11 @@ public class FileManager {
     public List<Note> loadFromFile() {
         /* Plik przechowuje tekst, program zwraca obiekt Note, parsujemy tekst na obiekt typu Note*/
         List<Note> notes = new ArrayList<>();
+        File file = new File(FILE_NAME);
+        if (file.exists()) {
+            return notes;
+        }
+
         try (
                 FileReader fileReader = new FileReader(FILE_NAME);
                 var reader = new BufferedReader(fileReader)
@@ -43,7 +48,7 @@ public class FileManager {
                 }
             }
         } catch (IOException ex) {
-            System.err.printf("Failed to read a file %s.", FILE_NAME);
+            System.err.printf("Failed to read a file %s%n", FILE_NAME);
         }
         return notes;
     }
