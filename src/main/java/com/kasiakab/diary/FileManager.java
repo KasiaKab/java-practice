@@ -1,8 +1,7 @@
 package com.kasiakab.diary;
 
-import java.io.BufferedWriter;
-import java.io.FileWriter;
-import java.io.IOException;
+import java.io.*;
+import java.util.ArrayList;
 import java.util.List;
 
 public class FileManager {
@@ -18,12 +17,24 @@ public class FileManager {
                 writer.write(note.toString());
                 writer.newLine();
             }
-
         } catch (IOException ex) {
-            System.err.format("Failed to save into a file %s.", FILE_NAME   );
-
-
+            System.err.printf("Failed to save into a file %s.", FILE_NAME   );
         }
+    }
 
+    public List<Note> loadFromFile() {
+        List<Note> notes = new ArrayList<>();
+        try (
+                FileReader fileReader = new FileReader(FILE_NAME);
+                var reader = new BufferedReader(fileReader)
+                ) {
+            String nextLine = null;
+            while ((nextLine = reader.readLine()) != null) {
+                System.out.println(nextLine);
+            }
+        } catch (IOException ex) {
+            System.err.printf("Failed to read a file %s.", FILE_NAME);
+        }
+        return notes;
     }
 }
