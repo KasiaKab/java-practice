@@ -39,3 +39,4 @@ build/
 
 ### Generated Data Files ###
 src/main/java/com/kasiakab/bmi/bmi_history.txt
+src/main/java/com/kasiakab/diary/diary.txt
