@@ -11,6 +11,10 @@ public class DiaryService {
         notes.add(new Note(content));
     }
 
+    public void addNote(Note note) {
+        notes.add(note);
+    }
+
     public List<Note> getAllNotes() {
         return new ArrayList<>(notes);
     }

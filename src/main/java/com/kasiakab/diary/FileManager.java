@@ -13,7 +13,7 @@ public class FileManager {
 
     public void saveToFile(List<Note> notes) {
         try (
-                FileWriter fileWriter = new FileWriter(FILE_NAME, true);
+                FileWriter fileWriter = new FileWriter(FILE_NAME);
                 var writer = new BufferedWriter(fileWriter)
         ) {
             for (Note note : notes) {
@@ -29,7 +29,7 @@ public class FileManager {
         /* Plik przechowuje tekst, program zwraca obiekt Note, parsujemy tekst na obiekt typu Note*/
         List<Note> notes = new ArrayList<>();
         File file = new File(FILE_NAME);
-        if (file.exists()) {
+        if (!file.exists()) {
             return notes;
         }
 

@@ -16,13 +16,13 @@ public class DiaryApp {
     }
 
     public void run() {
-        reader.showMessage("=== Welcome to Your Diary ===");
+            reader.showMessage("=== Welcome to Your Diary ===");
 
-        /* Wczytujemy istniejące notatki */
-        List<Note> loadedNotes = fileManager.loadFromFile();
-        for (Note note : loadedNotes) {
-            diaryService.addNote(note.getContent());
-        }
+            /* Wczytujemy istniejące notatki */
+            List<Note> loadedNotes = fileManager.loadFromFile();
+            for (Note note : loadedNotes) {
+                diaryService.addNote(note);
+            }
 
         while (true) {
             reader.displayMenu();
