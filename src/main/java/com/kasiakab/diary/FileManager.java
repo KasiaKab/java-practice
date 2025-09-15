@@ -8,7 +8,8 @@ import java.util.List;
 
 public class FileManager {
 
-    private static final String FILE_NAME = "diary.txt";
+    private static final String FILE_NAME = 
+            "C:/Users/kasia/Java Learning/my-java-practice/java-practice/src/main/java/com/kasiakab/diary/diary.txt";
 
     public void saveToFile(List<Note> notes) {
         try (
@@ -70,7 +71,7 @@ public class FileManager {
 
     private static String parseContent(String nextLine) {
         /* Wyciągamy treść, wszystko po " ] " */
-        int contentStart = nextLine.indexOf(" ] ") + 3;
+        int contentStart = nextLine.indexOf(" ]") + 3;
         String content = nextLine.substring(contentStart);
         return content;
     }
