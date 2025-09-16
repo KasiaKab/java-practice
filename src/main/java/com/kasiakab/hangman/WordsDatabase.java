@@ -21,6 +21,10 @@ public class WordsDatabase {
     }
 
     public String getRandomWord() {
+        if (words.isEmpty()) {
+            throw new IllegalArgumentException("Words list is empty");
+        }
+
         Random rand = new Random();
         return words.get(rand.nextInt(words.size()));
     }
