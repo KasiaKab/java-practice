@@ -63,7 +63,7 @@ public class HangmanService {
             if (guessedLetters[i] == true) {
                 state.append(secretWord.charAt(i));
             } else {
-                state.append(secretWord.charAt('*'));
+                state.append('*');
             }
         }
         return state.toString();
@@ -86,9 +86,12 @@ public class HangmanService {
         return false;
     }
 
+    public int getMistakes() {
+        return mistakes;
+    }
+
+    public String getSecretWord() {
+        return secretWord;
+    }
+
 }
-
-
-
-
-
