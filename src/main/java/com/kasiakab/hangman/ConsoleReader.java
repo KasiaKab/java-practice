@@ -14,4 +14,10 @@ public class ConsoleReader {
         return sc.nextLine().trim().toLowerCase();
     }
 
+    public void displayGameOptions() {
+        for (GameOption gameOption : GameOption.values()) {
+            System.out.println((gameOption.ordinal() + 1) + ". " + gameOption.getDescription());
+        }
+    }
+
 }
