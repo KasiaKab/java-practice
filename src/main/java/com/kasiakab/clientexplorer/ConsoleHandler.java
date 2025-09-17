@@ -17,4 +17,12 @@ public class ConsoleHandler {
         return scanner.nextLine();
     }
 
+    public void showProgress(String message) {
+        System.out.print(message);
+    }
+
+    public void newLine() {
+        System.out.println();
+    }
+
 }
