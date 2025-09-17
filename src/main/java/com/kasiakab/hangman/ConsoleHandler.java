@@ -2,7 +2,7 @@ package com.kasiakab.hangman;
 
 import java.util.Scanner;
 
-public class ConsoleReader {
+public class ConsoleHandler {
 
     private Scanner sc = new Scanner(System.in);
 

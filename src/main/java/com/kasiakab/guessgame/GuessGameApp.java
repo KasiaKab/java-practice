@@ -9,10 +9,10 @@ public class GuessGameApp {
         while (true) {
             GameLogic.play();
 
-            Character response = ConsoleReader.askPlayAgain();
+            Character response = ConsoleHandler.askPlayAgain();
 
             if (!response.equals('Y')) {
-                ConsoleReader.goodbyeMessage();
+                ConsoleHandler.goodbyeMessage();
                 keepPlaying = false;
                 break;
             } else {

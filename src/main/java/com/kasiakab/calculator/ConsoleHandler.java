@@ -2,7 +2,7 @@ package com.kasiakab.calculator;
 
 import java.util.Scanner;
 
-public class ConsoleReader {
+public class ConsoleHandler {
 
     private static final Scanner sc = new Scanner(System.in);
 

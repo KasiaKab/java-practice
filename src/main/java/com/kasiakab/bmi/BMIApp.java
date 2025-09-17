@@ -9,11 +9,11 @@ import java.time.format.DateTimeFormatter;
 
 public class BMIApp {
 
-    private ConsoleReader reader;
+    private ConsoleHandler reader;
     private BMICalculator calculator;
 
     public BMIApp() {
-        this.reader = new ConsoleReader();
+        this.reader = new ConsoleHandler();
         this.calculator = new BMICalculator();
     }
 

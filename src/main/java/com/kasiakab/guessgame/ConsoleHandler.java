@@ -3,9 +3,9 @@ package com.kasiakab.guessgame;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
-public class ConsoleReader {
+public class ConsoleHandler {
 
-    private ConsoleReader() {
+    private ConsoleHandler() {
         // Klasa narzędziowa (utility class) — zawiera tylko metody statyczne.
         // Tworzenie instancji nie ma sensu i jest zablokowane.
     }

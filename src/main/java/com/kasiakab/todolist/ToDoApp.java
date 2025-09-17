@@ -7,11 +7,11 @@ public class ToDoApp {
     private static final ToDoService toDoService = new ToDoService();
 
     public static void run() {
-        ConsoleReader.welcomeMessage();
+        ConsoleHandler.welcomeMessage();
 
         while (true) {
-            ConsoleReader.displayMenu();
-            int choice = ConsoleReader.readInt("Chosen option: ");
+            ConsoleHandler.displayMenu();
+            int choice = ConsoleHandler.readInt("Chosen option: ");
 
             try {
                 MenuOption option = getOption(choice);
@@ -21,53 +21,53 @@ public class ToDoApp {
                     case EDIT -> handleEdit();
                     case REMOVE -> handleRemove();
                     case EXIT -> {
-                        ConsoleReader.close();
-                        ConsoleReader.println("Goodbye!");
+                        ConsoleHandler.close();
+                        ConsoleHandler.println("Goodbye!");
                         return;
                     }
-                    default -> ConsoleReader.showError("Unknown option. Please try again.");
+                    default -> ConsoleHandler.showError("Unknown option. Please try again.");
                 }
             } catch (IllegalArgumentException e) {
-                ConsoleReader.showError("Invalid choice. Please select 1–" + MenuOption.values().length);
+                ConsoleHandler.showError("Invalid choice. Please select 1–" + MenuOption.values().length);
             }
         }
     }
 
     private static void handleAdd() {
-        String task = ConsoleReader.readString("Enter task: ");
+        String task = ConsoleHandler.readString("Enter task: ");
         toDoService.addTask(task);
-        ConsoleReader.showSuccess("Task added successfully.");
+        ConsoleHandler.showSuccess("Task added successfully.");
     }
 
     private static void handleList() {
         List<String> tasks = toDoService.getAllTasks();
         if (tasks.isEmpty()) {
-            ConsoleReader.println("No tasks yet. Add one!");
+            ConsoleHandler.println("No tasks yet. Add one!");
             return;
         }
-        ConsoleReader.println("\nYOUR TASKS:");
+        ConsoleHandler.println("\nYOUR TASKS:");
         for (int i = 0; i < tasks.size(); i++) {
-            ConsoleReader.println((i + 1) + ". " + tasks.get(i));
+            ConsoleHandler.println((i + 1) + ". " + tasks.get(i));
         }
-        ConsoleReader.println();
+        ConsoleHandler.println();
     }
 
     private static void handleEdit() {
-        int num = ConsoleReader.readInt("Enter task number to edit: ") - 1;
-        String newDescription = ConsoleReader.readString("New description: ");
+        int num = ConsoleHandler.readInt("Enter task number to edit: ") - 1;
+        String newDescription = ConsoleHandler.readString("New description: ");
         if (toDoService.editTask(num, newDescription)) {
-            ConsoleReader.showSuccess("Task #" + (num + 1) + " updated to: " + newDescription);
+            ConsoleHandler.showSuccess("Task #" + (num + 1) + " updated to: " + newDescription);
         } else {
-            ConsoleReader.showError("Invalid task number.");
+            ConsoleHandler.showError("Invalid task number.");
         }
     }
 
     private static void handleRemove() {
-        int num = ConsoleReader.readInt("Enter task number to remove: ") - 1;
+        int num = ConsoleHandler.readInt("Enter task number to remove: ") - 1;
         if (toDoService.removeTask(num)) {
-            ConsoleReader.showSuccess("Task #" + (num + 1) + " removed.");
+            ConsoleHandler.showSuccess("Task #" + (num + 1) + " removed.");
         } else {
-            ConsoleReader.showError("Invalid task number.");
+            ConsoleHandler.showError("Invalid task number.");
         }
     }
 

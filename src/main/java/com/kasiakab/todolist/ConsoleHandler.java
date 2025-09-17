@@ -4,9 +4,9 @@ import java.util.InputMismatchException;
 import java.util.Scanner;
 
 
-public class ConsoleReader {
+public class ConsoleHandler {
 
-    private ConsoleReader() {
+    private ConsoleHandler() {
     };
 
     private static Scanner sc = new Scanner(System.in);

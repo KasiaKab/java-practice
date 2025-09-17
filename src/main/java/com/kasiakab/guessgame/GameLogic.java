@@ -15,13 +15,13 @@ public class GameLogic {
     private static Random rand = new Random();
 
     public static void play() {
-        ConsoleReader.welcomeMessage();
+        ConsoleHandler.welcomeMessage();
 
         int secretNumber = rand.nextInt(101);
         int counter = 0;
 
         while (counter < MAX_ATTEMPTS) {
-            int inputNumber = ConsoleReader.collectNumber();
+            int inputNumber = ConsoleHandler.collectNumber();
             counter++;
 
             int difference = Math.abs(inputNumber - secretNumber);
@@ -29,25 +29,25 @@ public class GameLogic {
             if (checkGuess(inputNumber, secretNumber, difference, counter)) break;
         }
         if (counter == MAX_ATTEMPTS)
-            ConsoleReader.gameOverMessage(secretNumber);
+            ConsoleHandler.gameOverMessage(secretNumber);
 
     }
 
     private static boolean checkGuess(int inputNumber, int secretNumber, int difference, int counter) {
         if (inputNumber < secretNumber) {
             if (difference <= CLOSE_RANGE) {
-                ConsoleReader.toLowCloseMessage(counter);
+                ConsoleHandler.toLowCloseMessage(counter);
             } else {
-                ConsoleReader.toLowMessage(counter);
+                ConsoleHandler.toLowMessage(counter);
             }
         } else if (inputNumber > secretNumber) {
             if (difference <= CLOSE_RANGE) {
-                ConsoleReader.toHighCloseMessage(counter);
+                ConsoleHandler.toHighCloseMessage(counter);
             } else {
-                ConsoleReader.toHighMessage(counter);
+                ConsoleHandler.toHighMessage(counter);
             }
         } else {
-            ConsoleReader.winMessage();
+            ConsoleHandler.winMessage();
             return true;
         }
         return false;

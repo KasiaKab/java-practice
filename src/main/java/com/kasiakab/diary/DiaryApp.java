@@ -5,12 +5,12 @@ import java.util.List;
 
 public class DiaryApp {
 
-    private ConsoleReader reader;
+    private ConsoleHandler reader;
     private DiaryService diaryService;
     private FileManager fileManager;
 
     public DiaryApp() {
-        this.reader = new ConsoleReader();
+        this.reader = new ConsoleHandler();
         this.diaryService = new DiaryService();
         this.fileManager = new FileManager();
     }

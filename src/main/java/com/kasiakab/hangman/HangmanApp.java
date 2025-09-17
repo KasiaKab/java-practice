@@ -2,12 +2,12 @@ package com.kasiakab.hangman;
 
 public class HangmanApp {
 
-    private ConsoleReader reader;
+    private ConsoleHandler reader;
     private WordsDatabase wordsDatabase;
     private HangmanService hangmanService;
 
     public HangmanApp() {
-        this.reader = new ConsoleReader();
+        this.reader = new ConsoleHandler();
         this.wordsDatabase = new WordsDatabase();
         this.hangmanService = null;
     }

@@ -2,11 +2,11 @@ package com.kasiakab.bmi;
 
 import java.util.Scanner;
 
-public class ConsoleReader {
+public class ConsoleHandler {
 
     private Scanner scanner = new Scanner(System.in);
 
-    public ConsoleReader() {};
+    public ConsoleHandler() {};
 
     public void welcomeMessage() {
         System.out.println("=== Welcome to BMI Calculator ===");

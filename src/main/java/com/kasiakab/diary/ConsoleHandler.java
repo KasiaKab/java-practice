@@ -3,9 +3,9 @@ package com.kasiakab.diary;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
-public class ConsoleReader {
+public class ConsoleHandler {
 
-    public ConsoleReader() {};
+    public ConsoleHandler() {};
 
     private final Scanner sc = new Scanner(System.in);
 

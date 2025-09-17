@@ -2,7 +2,7 @@ package com.kasiakab.calculator;
 
 public class CalculatorApp {
 
-    private static final ConsoleReader reader = new ConsoleReader();
+    private static final ConsoleHandler reader = new ConsoleHandler();
     private static final CalculatorService service = new CalculatorService();
 
     public static void run() {
