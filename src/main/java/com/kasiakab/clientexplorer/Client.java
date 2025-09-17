@@ -61,9 +61,9 @@ public class Client {
     public String toString() {
         return "Client [" +
                 "id = " + id +
-                ", firstName = " + firstName + '\'' +
-                ", lastName = " + lastName + '\'' +
-                ", country = " + country + '\'' +
+                ", firstName = " + firstName  +
+                ", lastName = " + lastName  +
+                ", country = " + country  +
                 ", value = " + value + " ]";
     }
 }
