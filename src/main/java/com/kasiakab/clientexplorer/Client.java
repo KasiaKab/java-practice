@@ -59,12 +59,11 @@ public class Client {
 
     @Override
     public String toString() {
-        return "Client{" +
-                "id=" + id +
-                ", firstName='" + firstName + '\'' +
-                ", lastName='" + lastName + '\'' +
-                ", country='" + country + '\'' +
-                ", value=" + value +
-                '}';
+        return "Client [" +
+                "id = " + id +
+                ", firstName = " + firstName + '\'' +
+                ", lastName = " + lastName + '\'' +
+                ", country = " + country + '\'' +
+                ", value = " + value + " ]";
     }
 }
