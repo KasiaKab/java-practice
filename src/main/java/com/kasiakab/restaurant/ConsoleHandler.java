@@ -1,6 +1,5 @@
 package com.kasiakab.restaurant;
 
-import java.util.ArrayList;
 import java.util.InputMismatchException;
 import java.util.List;
 import java.util.Scanner;
@@ -19,13 +18,13 @@ public class ConsoleHandler {
         }
     }
 
-    public RestaurantOption readResaturantOption() {
+    public RestaurantOption readOption() {
         while (true) {
             try {
                 int option = sc.nextInt();
                 sc.nextLine();
                 if (option < 1 || option > RestaurantOption.values().length) {
-
+                    showMessage("Please enter a number between 1 and " + (RestaurantOption.values().length - 1) + ".");
                     displayOption();
                     continue;
                 }
@@ -37,6 +36,44 @@ public class ConsoleHandler {
         }
     }
 
+    public Order readOrder(List<Dish> menu) {
+        while (true) {
+            showMessage("Order the selected dishes, listing their numbers separated by commas:");
+
+            String input = sc.nextLine();
+            Order order = new Order();
+            boolean isValid = false;
+
+            try {
+                String[] parts = input.split(",");
+
+                for (String part : parts) {
+                    int number = Integer.parseInt(part.trim());
+                    int index = number - 1;
+
+                    if (index < 0 || index >= menu.size()) {
+                        showMessage("Error: Dish number " + number + " is not available. Please choose from 1 to " + menu.size() + ".");
+                        isValid = false;
+                        break;
+                    }
+                    Dish dish = menu.get(index);
+                    order.addDish(dish);
+                }
+
+                if (isValid) {
+                    return order;
+                }
+            } catch (NumberFormatException ex) {
+                showMessage("Invalid input. Please enter a numeric value.");
+            }
+        }
+    }
 
 
+    public void displayMenu(List<Dish> menu) {
+        for (int i = 0; i < menu.size(); i++) {
+            System.out.println((i + 1) + ". " + menu.get(i).toString());
+
+        }
+    }
 }
