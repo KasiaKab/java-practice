@@ -14,4 +14,8 @@ public class Order {
     public List<Dish> getOrder() {
         return order;
     }
+
+    public void addDish(Dish dish) {
+        order.add(dish);
+    }
 }
