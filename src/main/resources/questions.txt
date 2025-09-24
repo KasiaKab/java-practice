@@ -1,0 +1,5 @@
+Co to jest JVM?|maszyna wirtualna javy
+Jak nazywa się typ logiczny w Javie?|boolean
+Czy String jest mutowalny w Javie?|nie
+Co oznacza skrót OOP?|programowanie obiektowe
+Jaki jest domyślny typ liczby zmiennoprzecinkowej w Javie?|double
