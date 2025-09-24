@@ -38,5 +38,5 @@ build/
 .DS_Store
 
 ### Generated Data Files ###
-src/main/java/com/kasiakab/bmi/bmi_history.txt
-src/main/java/com/kasiakab/diary/diary.txt
+src/main/resources/bmi_history.txt
+src/main/resources/diary.txt
