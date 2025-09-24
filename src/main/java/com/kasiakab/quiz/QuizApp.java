@@ -25,7 +25,7 @@ public class QuizApp {
 
         InputStream is = getClass().getClassLoader().getResourceAsStream(fileName);
         if (is == null) {
-            throw new IllegalArgumentException("Plik nie znaleziony: " + fileName);
+            throw new IllegalArgumentException("File not found: " + fileName);
         }
 
         List<String> lines = new BufferedReader(new InputStreamReader(is))
