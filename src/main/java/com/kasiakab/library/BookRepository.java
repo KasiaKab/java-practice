@@ -1,8 +1,6 @@
 package com.kasiakab.library;
 
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Optional;
+import java.util.*;
 
 public class BookRepository {
 
@@ -21,5 +19,9 @@ public class BookRepository {
             throw new BookNotFoundException("Book with ISBN " + isbn + " not found");
         }
         books.remove(isbn);
+    }
+
+    public List<Book> getAllBooks() {
+        return new ArrayList<>(books.values());
     }
 }

@@ -1,5 +1,6 @@
 package com.kasiakab.library;
 
+import java.util.List;
 import java.util.Optional;
 
 public class BookService {
@@ -22,5 +23,8 @@ public class BookService {
         bookRepository.removeBookByIsbn(isbn);
     }
 
+    public List<Book> getAllBooks() {
+        return bookRepository.getAllBooks();
+    }
 
 }
