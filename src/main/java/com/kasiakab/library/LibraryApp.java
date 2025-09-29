@@ -5,9 +5,13 @@ import java.util.Optional;
 
 public class LibraryApp {
 
-    private final BookService bookService = new BookService(new BookRepository());
-    private final ConsoleHandler consoleHandler = new ConsoleHandler();
+    private final BookService bookService;
+    private final ConsoleHandler consoleHandler;
 
+    public LibraryApp(BookService bookService, ConsoleHandler consoleHandler) {
+        this.bookService = bookService;
+        this.consoleHandler = consoleHandler;
+    }
 
     public void run() {
         while (true) {
@@ -20,12 +24,17 @@ public class LibraryApp {
                 case FIND_BOOK -> handleFindBook();
                 case REMOVE_BOOK -> handleRemoveBook();
                 case SHOW_ALL_BOOKS -> handleShowAllBooks();
+                case GENERATE_REPORT -> handleGenerateReport();
                 case EXIT -> {
                     consoleHandler.showMessage("Goodbye!");
                     return;
                 }
             }
         }
+    }
+
+    private void handleGenerateReport() {
+
     }
 
     private void handleShowAllBooks() {
