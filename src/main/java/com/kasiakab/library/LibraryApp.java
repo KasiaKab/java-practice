@@ -1,7 +1,12 @@
 package com.kasiakab.library;
 
+import java.nio.file.Files;
+import java.nio.file.Paths;
+import java.util.Comparator;
 import java.util.List;
 import java.util.Optional;
+import java.util.TreeSet;
+import java.util.stream.Collectors;
 
 public class LibraryApp {
 
@@ -34,14 +39,46 @@ public class LibraryApp {
     }
 
     private void handleGenerateReport() {
+        List<Book> allBooks = bookService.getAllBooks();
+        StringBuilder report = new StringBuilder();
 
+        if (allBooks.isEmpty()) {
+            consoleHandler.showMessage("No books found! Report not generated.");
+            return;
+        } else {
+            // Ksiązki posortowane po tytule
+            report.append("=== LIBRARY REPORT ===\n\n");
+            report.append("Total number of books: ").append(allBooks.size()).append("\n\n");
+            report.append("Books sorted by title:\n");
+            allBooks.stream()
+                    .sorted(Comparator.comparing(book -> book.title()))
+                    .forEach(book -> report.append("- ").append(book).append("\n"));
+            report.append("\n");
+
+            // Unikalni posortowani autorzy
+            TreeSet<String> authors = allBooks.stream()
+                    .map(book -> book.author())
+                    .collect(Collectors.toCollection(TreeSet::new));
+            report.append("Unique authors sorted:\n");
+            authors.forEach(author -> report.append("- ").append(author).append("\n"));
+            report.append("\n");
+        }
+
+        // Zapis do pliku
+        try {
+            Files.write(Paths.get("src/main/resources/report.txt"), report.toString().getBytes());
+            consoleHandler.showMessage("Report saved to report.txt");
+        } catch (Exception e) {
+            consoleHandler.showMessage("Error saving report: " + e.getMessage());
+        }
     }
+
 
     private void handleShowAllBooks() {
         List<Book> allBooks = bookService.getAllBooks();
         if (allBooks.isEmpty()) {
             consoleHandler.showMessage("No books found!");
-        }  else {
+        } else {
             consoleHandler.showMessage("All books in the library:");
             allBooks.forEach(book -> consoleHandler.showMessage(book.toString()));
         }
