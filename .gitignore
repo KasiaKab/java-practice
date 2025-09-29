@@ -44,3 +44,4 @@ build/
 ### Generated Data Files ###
 src/main/resources/bmi_history.txt
 src/main/resources/diary.txt
+src/main/resources/report.txt
